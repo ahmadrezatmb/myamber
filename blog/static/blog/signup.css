@@ -1,0 +1,56 @@
+.formbox{
+    margin-top: 8%;
+}
+
+.custombtn {
+    background-color: black;
+    font-size: 22px;
+    border-radius: 25px;
+    border-style: none;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-right: 20px;
+    padding-left: 20px;
+    color: white;
+}
+h1 {
+    text-align: center;
+    color: white;
+    margin-bottom: 40px;
+}
+
+.customdisplay{
+    display: table;
+}
+.usernamecls{
+    width: 100%;
+    border-radius: 25px;
+    border-style: none;
+    padding: 5px;
+    outline: none;
+}
+.error {
+    color: rgb(190, 13, 13);
+    margin-top: -14px;
+    margin-bottom: 15px;
+}
+
+.fakeinput {
+    width: 100%;
+    border-radius: 25px;
+    border-style: none;
+    outline: none;
+    background-color: rgb(255, 255, 255) !important;
+}
+.showpass {
+    background-color: rgba(255, 255, 255, 0);
+    border: none;
+    outline: none;
+    width: 90%;
+    border-radius: 25px;
+    padding: 5px;
+    outline: none;
+}
+#showpassicon {
+    cursor: pointer;
+}

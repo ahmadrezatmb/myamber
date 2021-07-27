@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+
+{% block css %}
+{% load static %}
+<link rel="stylesheet" type="text/css" href="{% static 'blog/editprofile.css' %}">
+{% endblock %}
+{% block content %}
+<div class="container-fluid">
+    <div class="col-sm-8 mx-auto">
+        <div class="row">
+            <div class="card border-light mb-3 bg-dark my-3" style="color: #83948C;">
+                <div class="card-body">
+                    <h4 class="card-title">Edit post</h4>
+                    <div class="card-header"></div>
+                    <form action="{% url 'editpost' post.id %}" class="formbox my-3" method="post">
+                        {% csrf_token %} 
+                        <input class="titleinput input" name="title" placeholder="post title ..." type="text" value="{{ post.title }}"><br> 
+                        <input class="summaryinput input" name="summary" placeholder="post summary ..." type="text" value="{{ post.summary }}"><br> 
+                        <textarea class="contentinput input" name="content" placeholder="post content ...">{{post.content}}</textarea><br> 
+                        <div class="form-check form-switch my-3">
+                            <label class="form-check-label" for="flexSwitchCheckDefault">comments</label>
+                            {% if post.hascomment %}
+                                <input class="form-check-input" name="enablecomment" type="checkbox" id="flexSwitchCheckDefault" checked>
+                            {% else %}  
+                                <input class="form-check-input" name="enablecomment" type="checkbox" id="flexSwitchCheckDefault">
+                            {% endif %}
+                        </div>
+                        <input class="submitinput input" name="submit" type="submit" value="Post">
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock content %}

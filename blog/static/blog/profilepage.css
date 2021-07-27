@@ -1,0 +1,29 @@
+.customdislplay{
+    display: table;
+}
+.title {
+    font-size: 28px;
+    color: white;
+}
+.field {
+    background-color: white;
+    border-radius: 25px;
+    padding: 5px;
+    margin-bottom: 10px;
+}
+.header{
+    text-align: center;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    color: white;
+    font-size: 37px;
+}
+.custombg {
+    background-color: #002730;
+}
+.editbtn{
+    float: right;
+}
+.profilepic{
+    border-radius: 50%;
+}

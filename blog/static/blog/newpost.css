@@ -1,0 +1,18 @@
+.form-check-input:checked {
+    background-color: #b58900;
+    border-color: #b58900;
+    outline: none;
+}
+.input {
+   border-radius: 25px;
+   border-style: none;
+   padding: 5px;
+   outline: none;
+   width: 100%;
+   margin-top: 5px;
+   margin-bottom: 5px;
+}
+.submitinput {
+   background-color: #B58900;
+   color: white;
+}

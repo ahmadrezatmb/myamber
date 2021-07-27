@@ -1,0 +1,64 @@
+{% extends 'base.html' %}
+
+{% block css %}
+{% load static %}
+<link rel="stylesheet" type="text/css" href="{% static 'blog/postpage.css' %}">
+{% endblock %}
+{% block content %}
+<div class="container-fluid">
+    <div class="col-sm-8 mx-auto">
+        <div class="row">
+            <div class="card border-light mb-3 bg-dark my-3" style="color: #83948C;">
+                <div class="card-header">
+                    <button id="back" class="mx-2 backbtn" style="float: left;">
+                        <img height="22px" src="https://img.icons8.com/ios/50/000000/back.png" width="22px">
+                    </button> 
+                    <span class="details">By <a class="customlink" href="{% url 'profile' post.author.username %}">{{post.author.username}}</a> in {{post.cdate}}</span> 
+                    {% if post.author.username == user.username %}
+                    <a class="mx-1 deletebtn custombtn" style="float: right;" href="{% url 'deletepost' post.id %}">delete</a> 
+                    <a class="mx-1 editbtn custombtn" href="{% url 'editpost' post.id %}"  style="float: right;">edit</a>
+                    {% endif %}
+                </div>
+                <div class="card-body">
+                    <h3 class="card-title">{{post.title}}</h3>
+                    <p class="card-text">summary : {{post.summary}}</p>
+                    <p class="card-text">content : {{post.content}}</p>
+                    <div class="card-header"></div>
+                    {% if user.is_authenticated %}
+                    {% if post.hascomment %}
+                    <form action="{% url 'postpage' post.id %}" class="formbox my-3" method="post">
+                        {% csrf_token %} <input class="commentinput input" name="comment" placeholder="your comment ..." type="text"> <input class="submitinput input" name="submit" type="submit" value="send">
+                    </form>
+                    <div class="container-fluid p-2">
+                        {% for comment in comments %}
+                        <!-- comments start (this part should repeat) -->
+                        <div class="row commentbox my-2">
+                            
+                            <div class="col-sm-1 p-0"><a href="{% url 'profile' comment.author.username %}"><img class="mx-auto profilepic" src="{{comment.author.avatar.url}}" style="display: table;" width="48px" height="48px"></a></div>
+                            <div class="col-sm-11 p-0">
+                                <a href="{% url 'profile' comment.author.username %}">
+                                <span  class="usernamecomment" ><strong>{{comment.author.username}} :</strong></span>
+                                </a>
+                                <p>{{comment.content}}</p>
+                            </div>
+                        </div>
+                        {% endfor %}
+                        <!-- end pattern -->
+                    </div>
+                    {% endif %}
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock content %}
+{% block js %}
+<script>
+    var btn = document.getElementById('back');
+    btn.addEventListener('click' , goback );
+    function goback(){
+        window.history.back();
+    }
+</script>
+{% endblock js %}

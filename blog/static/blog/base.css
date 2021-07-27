@@ -1,0 +1,17 @@
+a {
+    text-decoration: none;
+}
+* {
+  font-family: 'Poppins', sans-serif;
+}
+
+.headeratag {
+  color: white !important;
+}
+.headerlink{
+  color: #80979E;
+}
+
+.headerlink:hover {
+  color: #a0aeb3;
+}

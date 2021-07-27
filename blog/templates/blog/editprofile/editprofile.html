@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+
+{% block css %}
+{% load static %}
+<link rel="stylesheet" type="text/css" href="{% static 'blog/editprofile.css' %}">
+{% endblock %}
+{% block content %}
+<div class="container-fluid">
+    <div class="col-sm-8 mx-auto">
+        <div class="row">
+            <div class="card border-light mb-3 bg-dark my-3" style="color: #83948C;">
+                <div class="card-body">
+                    <h4 class="card-title">Edit account</h4>
+                    <div class="card-header"></div>
+                    <form enctype="multipart/form-data" action="{% url 'editprofile' thisuser.username %}" class="formbox my-3" method="post">
+                        {% csrf_token %} 
+                        <input class="usernameinput input" name="username" placeholder="username" type="text" value="{{thisuser.username}}"><br>
+                        <p class="usernameerror error">{{usernameerror}}</p>
+                        <textarea class="bioinput input" name="bio" placeholder="bio" >{{thisuser.bio}}</textarea><br>
+                        <span>profile pic : </span>
+                        <input class="imgimput input" name="image" type="file" accept="image/*">
+                        <input class="submitinput input  mx-1" name="submit" type="submit" value="Update">
+                        <input class="deleteinput input mx-1" name="submit" type="submit" value="Delete account">
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock content %}

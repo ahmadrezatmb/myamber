@@ -1,0 +1,62 @@
+.backbtn{
+    border-radius: 50%;
+    border-style: solid;
+    border-color: white;
+     padding: 0;
+     padding-right: 3px;
+     padding-left: 2px;
+     background-color: rgb(255, 255, 255);
+}
+.details {
+    position: absolute;
+    margin-top: 2px;
+}
+.custombtn {
+    border-radius: 20px;
+    border-style: none;
+    padding: 4px;
+    padding-right: 7px;
+    padding-right: 7px;
+    color: white;
+}
+.deletebtn{
+     background-color: #CB4B16 ;
+}
+.deletebtn:hover{
+    color: white;
+}
+.editbtn {
+ background-color: #2AA198 ;
+}
+.editbtn:hover {
+    background-color: #2AA198 ;
+    color: white;
+}
+.commentinput {
+    width: 78%;
+    padding-right: 8px;
+}
+.submitinput {
+    width: 19%;
+    background-color: #B58900;
+    color: white;
+}
+.input {
+    border-radius: 25px;
+    border-style: none;
+    padding: 5px;
+    outline: none;
+}
+.commentbox {
+    height: auto;
+    border-style: none;
+    border-radius: 25px;
+    background-color: white;
+    padding: 2px;
+}
+.usernamecomment{
+    color: black;
+}
+.profilepic{
+     border-radius: 50%;
+ }

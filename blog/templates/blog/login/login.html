@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+{% block css %}
+{% load static %}
+<link rel="stylesheet" type="text/css" href="{% static 'blog/login.css' %}">
+
+{% endblock %}
+{% block content %}
+<div class="container-fluid">
+    <div class="col-md-3 mx-auto formbox" >
+        <h1 >Amber login</h1>
+        <form action="{% url 'login' %}" method="POST">
+            {% csrf_token %}
+            <input type="text" name="username"  class="mx-auto customdisplay usernamecls" placeholder="username" ><br>
+            <p id="usernameerror" class="error">{{usernameerror}}</p>
+            <div class="mx-auto fakeinput">
+                <input type="password" name="password"  class="mx-auto showpass" placeholder="password" >
+                <img id="showpassicon" src="https://img.icons8.com/material-rounded/24/000000/visible.png" width="24px"/>
+            </div><br>
+            <p id="passworderror" class="error"></p>
+            <input type="submit" value="login" class="mx-auto custombtn customdisplay" >
+        </form>
+        <span class="mx-auto my-3 customdisplay" style="color: white;" >Don't have an account ? <a href="{% url 'signup' %}" >signup</a></span>
+        <span class="mx-auto my-3 customdisplay" style="color: white;" >forgot your password ? <a href="{% url 'resetpassword' %}" >reset it</a></span>
+    </div>
+</div>
+{% endblock content %}
+
+
+{% block js %}
+<script>
+    var showpassicon = document.getElementById('showpassicon');
+    showpassicon.addEventListener('click' , showpass);
+    var passinput = document.getElementsByName('password')[0];
+    function showpass() {
+        if (passinput.type == 'text') {
+            passinput.type = 'password' ;
+            showpassicon.src = "https://img.icons8.com/material-rounded/24/000000/visible.png";
+        }else {
+            passinput.type = 'text';
+            showpassicon.src = "https://img.icons8.com/ios-filled/50/000000/closed-eye.png";
+        }
+    }
+</script>
+{% endblock js %}
+
